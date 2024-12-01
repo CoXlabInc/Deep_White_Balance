@@ -131,6 +131,7 @@ def imshow(img, *arguments, colortemp=None):
                 ax[i // 3][i % 3].axis('off')
             i = i + 1
 
+    fig.set_size_inches(20, 20)
     plt.xticks([]), plt.yticks([])
     plt.axis('off')
     plt.show()

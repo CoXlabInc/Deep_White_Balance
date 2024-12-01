@@ -1,0 +1,19 @@
+services:
+  pytorch:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
+    volumes:
+      - .:/workspace
+      - ../../edgeeye_images_20241201:/images
+    command: 'jupyter-lab'
+    ports:
+      - 8888:8888
+    ipc: host
